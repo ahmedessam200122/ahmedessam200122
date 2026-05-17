@@ -121,6 +121,170 @@
 
 </div>
 
+## 🔮 Secret Data Channel
+
+<div align="center">
+
+<!-- FLOWING LIGHT TUBE ANIMATION - Fiber-Optic Cable with Moving Energy -->
+<svg width="100%" height="180" viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(180deg, rgba(10, 14, 39, 0.8) 0%, rgba(15, 21, 53, 0.6) 100%);">
+  <defs>
+    <!-- Soft White Light Glow -->
+    <filter id="lightGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1"/>
+        <feFuncG type="linear" slope="1"/>
+        <feFuncB type="linear" slope="0.95"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Blue Neon Glow -->
+    <filter id="tubeBlueGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0"/>
+        <feFuncG type="linear" slope="0.7"/>
+        <feFuncB type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Purple Neon Glow -->
+    <filter id="tubePurpleGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0.7"/>
+        <feFuncG type="linear" slope="0.1"/>
+        <feFuncB type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Cyan Neon Glow -->
+    <filter id="tubeCyanGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0"/>
+        <feFuncG type="linear" slope="1"/>
+        <feFuncB type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Moving Light Gradient -->
+    <linearGradient id="movingLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f0f0f0;stop-opacity:0" />
+      <stop offset="35%" style="stop-color:#ffffff;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="65%" style="stop-color:#ffffff;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:0" />
+    </linearGradient>
+
+    <style>
+      @keyframes flowLight {
+        0% {
+          x: -150;
+        }
+        100% {
+          x: 800;
+        }
+      }
+      @keyframes pulseGlow {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+      }
+      @keyframes tubeShimmer {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.8; }
+      }
+      
+      .flowing-light { animation: flowLight 3s ease-in-out infinite; }
+      .tube-glow { animation: pulseGlow 4s ease-in-out infinite; }
+      .shimmer { animation: tubeShimmer 3s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Subtle Background Glow -->
+  <ellipse cx="400" cy="90" rx="250" ry="80" fill="#6b21ff" opacity="0.05"/>
+
+  <!-- ===== FIBER OPTIC TUBE STRUCTURE ===== -->
+  
+  <!-- Outer Tube Shadow (Dark Base) -->
+  <path d="M 80 70 Q 400 50 720 70 L 720 110 Q 400 130 80 110 Z" fill="none" stroke="#0a0e27" stroke-width="8" opacity="0.9"/>
+
+  <!-- Inner Tube - Dark Sealed Channel -->
+  <path d="M 80 70 Q 400 50 720 70 L 720 110 Q 400 130 80 110 Z" fill="#0f1535" opacity="0.7"/>
+
+  <!-- Tube Top Edge - Blue Neon -->
+  <path d="M 80 70 Q 400 50 720 70" fill="none" stroke="#00d4ff" stroke-width="2.5" filter="url(#tubeBlueGlow)" opacity="0.8" class="tube-glow"/>
+
+  <!-- Tube Bottom Edge - Purple Neon -->
+  <path d="M 80 110 Q 400 130 720 110" fill="none" stroke="#6b21ff" stroke-width="2.5" filter="url(#tubePurpleGlow)" opacity="0.8" class="tube-glow"/>
+
+  <!-- Tube Left Cap - Cyan Neon -->
+  <ellipse cx="80" cy="90" rx="3" ry="20" fill="none" stroke="#00d4ff" stroke-width="2" filter="url(#tubeCyanGlow)" opacity="0.7"/>
+
+  <!-- Tube Right Cap - Cyan Neon -->
+  <ellipse cx="720" cy="90" rx="3" ry="20" fill="none" stroke="#00d4ff" stroke-width="2" filter="url(#tubeCyanGlow)" opacity="0.7"/>
+
+  <!-- ===== FLOWING LIGHT EFFECT ===== -->
+
+  <!-- Main Flowing White Light (Cylinder) -->
+  <ellipse cx="400" cy="90" rx="150" ry="15" fill="url(#movingLight)" class="flowing-light" filter="url(#lightGlow)"/>
+
+  <!-- Secondary Light Glow for Enhanced Effect -->
+  <rect x="0" y="75" width="800" height="30" fill="url(#movingLight)" class="flowing-light" opacity="0.6" filter="url(#lightGlow)"/>
+
+  <!-- Energy Pulse Points (Data Markers) -->
+  <circle cx="200" cy="90" r="4" fill="#ffffff" opacity="0.4" class="shimmer" filter="url(#lightGlow)"/>
+  <circle cx="400" cy="90" r="5" fill="#ffffff" opacity="0.6" class="shimmer" filter="url(#lightGlow)" style="animation-delay: 0.75s"/>
+  <circle cx="600" cy="90" r="4" fill="#ffffff" opacity="0.4" class="shimmer" filter="url(#lightGlow)" style="animation-delay: 1.5s"/>
+
+  <!-- ===== DECORATIVE ACCENTS ===== -->
+
+  <!-- Top Connection Points -->
+  <g opacity="0.5">
+    <circle cx="100" cy="65" r="2" fill="#00d4ff" filter="url(#tubeBlueGlow)"/>
+    <circle cx="400" cy="45" r="2" fill="#00d4ff" filter="url(#tubeBlueGlow)"/>
+    <circle cx="700" cy="65" r="2" fill="#00d4ff" filter="url(#tubeBlueGlow)"/>
+  </g>
+
+  <!-- Bottom Connection Points -->
+  <g opacity="0.5">
+    <circle cx="100" cy="115" r="2" fill="#6b21ff" filter="url(#tubePurpleGlow)"/>
+    <circle cx="400" cy="135" r="2" fill="#6b21ff" filter="url(#tubePurpleGlow)"/>
+    <circle cx="700" cy="115" r="2" fill="#6b21ff" filter="url(#tubePurpleGlow)"/>
+  </g>
+
+  <!-- Side Accent Lines (Cyberpunk Details) -->
+  <line x1="70" y1="75" x2="50" y2="60" stroke="#00d4ff" stroke-width="1" filter="url(#tubeBlueGlow)" opacity="0.4"/>
+  <line x1="730" y1="75" x2="750" y2="60" stroke="#00d4ff" stroke-width="1" filter="url(#tubeBlueGlow)" opacity="0.4"/>
+  <line x1="70" y1="105" x2="50" y2="120" stroke="#6b21ff" stroke-width="1" filter="url(#tubePurpleGlow)" opacity="0.4"/>
+  <line x1="730" y1="105" x2="750" y2="120" stroke="#6b21ff" stroke-width="1" filter="url(#tubePurpleGlow)" opacity="0.4"/>
+
+  <!-- Status Label -->
+  <text x="400" y="160" font-family="monospace" font-size="11" fill="#00d4ff" text-anchor="middle" opacity="0.6" filter="url(#tubeBlueGlow)">
+    DATA STREAM ACTIVE | HIDDEN INTELLIGENCE FLOW
+  </text>
+</svg>
+
+</div>
+
+---
+
 ## 🔮 Profile Overview
 
 <table>
@@ -169,7 +333,7 @@
 
 <div align="center">
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ahmedessam200122&theme=tokyonight&show_icons=true&hide_border=true&bg_color=0a0e27&title_color=00d4ff&text_color=ffffff&icon_color=6b21ff)](https://github.com/ahmedessam200122)
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ahmedessam200122&theme=tokyonight&show_icons=true&hide_border=true&bg_color=0a0e27&title_color=00d4ff&text_color=ffffff&icon_color=ff006e)](https://github.com/ahmedessam200122)
 
 [![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ahmedessam200122&theme=tokyonight&layout=compact&hide_border=true&bg_color=0a0e27&title_color=00d4ff&text_color=ffffff)](https://github.com/ahmedessam200122)
 
