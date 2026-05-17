@@ -1,95 +1,115 @@
 <div align="center">
 
-<!-- Animated Neon Tube Pipeline -->
-<svg width="100%" height="120" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(180deg, #0a0e27 0%, #0f1535 100%);">
+<!-- Neon Cyberpunk Header Animation -->
+<svg width="100%" height="140" viewBox="0 0 800 140" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(180deg, #0a0e27 0%, #0f1535 100%);">
   <defs>
-    <!-- Glow filters -->
-    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <!-- Neon Glow Effects -->
+    <filter id="neonGlowBlue" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0"/>
+        <feFuncG type="linear" slope="0.8"/>
+        <feFuncB type="linear" slope="1"/>
+      </feComponentTransfer>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
     
-    <!-- Blue-Purple neon glow -->
-    <filter id="tubeGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    <filter id="neonGlowPurple" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="0.8"/>
+        <feFuncG type="linear" slope="0.2"/>
+        <feFuncB type="linear" slope="1"/>
+      </feComponentTransfer>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
     
-    <!-- Flowing light animation -->
-    <linearGradient id="flowingLight" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0" />
-      <stop offset="25%" style="stop-color:#ffffff;stop-opacity:0.3" />
-      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
-      <stop offset="75%" style="stop-color:#ffffff;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
-    </linearGradient>
+    <filter id="neonGlowPink" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="1"/>
+        <feFuncG type="linear" slope="0.2"/>
+        <feFuncB type="linear" slope="0.6"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Grid Pattern -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#1a2847" stroke-width="0.5"/>
+    </pattern>
     
     <style>
-      @keyframes flowLeft {
-        0% { transform: translateX(-400px); }
-        100% { transform: translateX(800px); }
+      @keyframes typingBlink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
       }
-      @keyframes tubeFlicker {
-        0%, 100% { opacity: 0.8; }
-        50% { opacity: 1; }
+      @keyframes floatUp {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
       }
-      .flowing-light {
-        animation: flowLeft 3s ease-in-out infinite;
-        filter: url(#neonGlow);
+      @keyframes glow {
+        0%, 100% { filter: url(#neonGlowBlue); }
+        50% { filter: url(#neonGlowPurple); }
       }
-      .tube-line {
-        animation: tubeFlicker 4s ease-in-out infinite;
-        filter: url(#tubeGlow);
-      }
+      .blink { animation: typingBlink 1.5s infinite; }
+      .float { animation: floatUp 3s ease-in-out infinite; }
+      .glow-shift { animation: glow 4s ease-in-out infinite; }
     </style>
   </defs>
   
-  <!-- Background grid (subtle) -->
-  <defs>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a2847" stroke-width="0.5"/>
-    </pattern>
-  </defs>
-  <rect width="800" height="120" fill="url(#grid)"/>
+  <!-- Background Grid -->
+  <rect width="800" height="140" fill="url(#grid)"/>
   
-  <!-- Left connection point -->
-  <circle cx="40" cy="60" r="3" fill="#00ffff" filter="url(#tubeGlow)"/>
-  <circle cx="40" cy="60" r="5" fill="none" stroke="#00ffff" stroke-width="1" opacity="0.3"/>
+  <!-- Top Decorative Line -->
+  <line x1="50" y1="15" x2="750" y2="15" stroke="#00d4ff" stroke-width="2" filter="url(#neonGlowBlue)" opacity="0.8"/>
+  <circle cx="50" cy="15" r="4" fill="#00d4ff" filter="url(#neonGlowBlue)"/>
+  <circle cx="750" cy="15" r="4" fill="#00d4ff" filter="url(#neonGlowBlue)"/>
   
-  <!-- Main tube (dark outline with neon edge) -->
-  <!-- Outer dark tube -->
-  <rect x="60" y="50" width="680" height="20" rx="10" fill="none" stroke="#0a0e27" stroke-width="2"/>
+  <!-- Left Corner Accent -->
+  <g>
+    <rect x="45" y="35" width="80" height="60" fill="none" stroke="#6b21ff" stroke-width="2" opacity="0.5"/>
+    <rect x="45" y="35" width="80" height="60" fill="none" stroke="#00d4ff" stroke-width="1" filter="url(#neonGlowBlue)" opacity="0.3"/>
+  </g>
   
-  <!-- Blue-Purple neon edge (outer glow) -->
-  <rect x="60" y="50" width="680" height="20" rx="10" fill="none" stroke="#6b21ff" stroke-width="1.5" class="tube-line" opacity="0.7"/>
-  <rect x="60" y="50" width="680" height="20" rx="10" fill="none" stroke="#00d4ff" stroke-width="0.8" class="tube-line" opacity="0.5"/>
+  <!-- Right Corner Accent -->
+  <g>
+    <rect x="675" y="35" width="80" height="60" fill="none" stroke="#ff006e" stroke-width="2" opacity="0.5"/>
+    <rect x="675" y="35" width="80" height="60" fill="none" stroke="#ff006e" stroke-width="1" filter="url(#neonGlowPink)" opacity="0.3"/>
+  </g>
   
-  <!-- Inner tube (dark with subtle glow) -->
-  <rect x="64" y="54" width="672" height="12" rx="6" fill="#0f1535" stroke="#1a2847" stroke-width="0.5"/>
-  
-  <!-- Flowing white light inside -->
-  <rect x="64" y="54" width="672" height="12" rx="6" fill="url(#flowingLight)" class="flowing-light" opacity="0.9"/>
-  
-  <!-- Right connection point -->
-  <circle cx="760" cy="60" r="3" fill="#00ffff" filter="url(#tubeGlow)"/>
-  <circle cx="760" cy="60" r="5" fill="none" stroke="#00ffff" stroke-width="1" opacity="0.3"/>
-  
-  <!-- Data flow indicator -->
-  <text x="400" y="100" font-family="monospace" font-size="10" fill="#00ffff" text-anchor="middle" opacity="0.6">
-    ▌ Data Stream Active ▌
+  <!-- Animated Typing Text -->
+  <text x="400" y="65" font-family="'Courier New', monospace" font-size="24" font-weight="bold" fill="#00d4ff" text-anchor="middle" filter="url(#neonGlowBlue)" class="glow-shift">
+    AHMED ESSAM
   </text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="90" font-family="'Courier New', monospace" font-size="12" fill="#6b21ff" text-anchor="middle" filter="url(#neonGlowPurple)" opacity="0.8">
+    flutter developer | backend architect | clean code advocate
+  </text>
+  
+  <!-- Blinking Cursor -->
+  <rect x="410" y="80" width="3" height="20" fill="#ff006e" filter="url(#neonGlowPink)" class="blink"/>
+  
+  <!-- Bottom Decorative Dots -->
+  <circle cx="200" cy="120" r="3" fill="#ff006e" filter="url(#neonGlowPink)" class="float" opacity="0.6"/>
+  <circle cx="400" cy="125" r="3" fill="#00d4ff" filter="url(#neonGlowBlue)" class="float" opacity="0.6" style="animation-delay: 0.5s"/>
+  <circle cx="600" cy="120" r="3" fill="#6b21ff" filter="url(#neonGlowPurple)" class="float" opacity="0.6" style="animation-delay: 1s"/>
+  
+  <!-- Bottom Decorative Line -->
+  <line x1="50" y1="135" x2="750" y2="135" stroke="#ff006e" stroke-width="2" filter="url(#neonGlowPink)" opacity="0.8"/>
+  <circle cx="50" cy="135" r="4" fill="#ff006e" filter="url(#neonGlowPink)"/>
+  <circle cx="750" cy="135" r="4" fill="#ff006e" filter="url(#neonGlowPink)"/>
 </svg>
-
-<!-- Header -->
-# ⚡ Ahmed Essam
-
-**Flutter Developer** | Backend Learner | Clean Architecture Enthusiast
 
 ```
 > Architecting elegant solutions through code
@@ -149,9 +169,9 @@
 
 <div align="center">
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ahmedessam200122&theme=tokyonight&show_icons=true&hide_border=true&bg_color=0a0e27&title_color=00d4ff&text_color=ffffff&icon_color=6b21ff&border_radius=10)](https://github.com/ahmedessam200122)
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=ahmedessam200122&theme=tokyonight&show_icons=true&hide_border=true&bg_color=0a0e27&title_color=00d4ff&text_color=ffffff&icon_color=6b21ff)](https://github.com/ahmedessam200122)
 
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ahmedessam200122&theme=tokyonight&layout=compact&hide_border=true&bg_color=0a0e27&title_color=00d4ff&text_color=ffffff&border_radius=10)](https://github.com/ahmedessam200122)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=ahmedessam200122&theme=tokyonight&layout=compact&hide_border=true&bg_color=0a0e27&title_color=00d4ff&text_color=ffffff)](https://github.com/ahmedessam200122)
 
 </div>
 
@@ -159,45 +179,45 @@
 
 <div align="center">
 
-<!-- Animated Separator Tube -->
-<svg width="100%" height="80" viewBox="0 0 800 80" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(180deg, transparent 0%, rgba(107, 33, 255, 0.05) 50%, transparent 100%);">
+<!-- Neon Separator Bar -->
+<svg width="100%" height="60" viewBox="0 0 800 60" xmlns="http://www.w3.org/2000/svg" style="background: linear-gradient(180deg, transparent 0%, rgba(107, 33, 255, 0.05) 50%, transparent 100%);">
   <defs>
     <style>
       @keyframes pulse {
         0%, 100% { opacity: 0.5; }
         50% { opacity: 1; }
       }
-      @keyframes flowRight {
-        0% { transform: translateX(-300px); }
-        100% { transform: translateX(800px); }
+      @keyframes shimmer {
+        0% { x: -100; }
+        100% { x: 800; }
       }
-      .pulse-dot {
-        animation: pulse 2s ease-in-out infinite;
-      }
-      .flow-particle {
-        animation: flowRight 4s ease-in-out infinite;
-      }
+      .pulse-dot { animation: pulse 2s ease-in-out infinite; }
+      .neon-line { stroke: #6b21ff; filter: url(#lineGlow); }
     </style>
-    <filter id="particleGlow">
+    <filter id="lineGlow">
       <feGaussianBlur stdDeviation="2"/>
     </filter>
   </defs>
   
-  <!-- Pulse dots along the line -->
-  <circle cx="100" cy="40" r="2" fill="#00ffff" class="pulse-dot" opacity="0.6"/>
-  <circle cx="250" cy="40" r="2" fill="#6b21ff" class="pulse-dot" opacity="0.6" style="animation-delay: 0.5s"/>
-  <circle cx="400" cy="40" r="2" fill="#00ffff" class="pulse-dot" opacity="0.6" style="animation-delay: 1s"/>
-  <circle cx="550" cy="40" r="2" fill="#6b21ff" class="pulse-dot" opacity="0.6" style="animation-delay: 1.5s"/>
-  <circle cx="700" cy="40" r="2" fill="#00ffff" class="pulse-dot" opacity="0.6" style="animation-delay: 2s"/>
+  <!-- Central Neon Line -->
+  <line x1="50" y1="30" x2="750" y2="30" stroke="#00d4ff" stroke-width="2" opacity="0.6" filter="url(#lineGlow)"/>
   
-  <!-- Flowing particles -->
-  <g class="flow-particle" filter="url(#particleGlow)">
-    <circle cx="0" cy="40" r="3" fill="#ffffff" opacity="0.4"/>
+  <!-- Accent Pulses -->
+  <circle cx="100" cy="30" r="4" fill="#00d4ff" class="pulse-dot" opacity="0.7"/>
+  <circle cx="250" cy="30" r="3" fill="#6b21ff" class="pulse-dot" opacity="0.5" style="animation-delay: 0.3s"/>
+  <circle cx="400" cy="30" r="4" fill="#ff006e" class="pulse-dot" opacity="0.7" style="animation-delay: 0.6s"/>
+  <circle cx="550" cy="30" r="3" fill="#6b21ff" class="pulse-dot" opacity="0.5" style="animation-delay: 0.9s"/>
+  <circle cx="700" cy="30" r="4" fill="#00d4ff" class="pulse-dot" opacity="0.7" style="animation-delay: 1.2s"/>
+  
+  <!-- Corner Accents -->
+  <g opacity="0.3">
+    <line x1="50" y1="15" x2="50" y2="45" stroke="#00d4ff" stroke-width="1" filter="url(#lineGlow)"/>
+    <line x1="750" y1="15" x2="750" y2="45" stroke="#ff006e" stroke-width="1" filter="url(#lineGlow)"/>
   </g>
   
-  <!-- System label -->
-  <text x="400" y="70" font-family="monospace" font-size="12" fill="#6b21ff" text-anchor="middle" opacity="0.5">
-    SYSTEMS INITIALIZED
+  <!-- Status Text -->
+  <text x="400" y="55" font-family="monospace" font-size="10" fill="#00d4ff" text-anchor="middle" opacity="0.5">
+    ◆ SYSTEMS ONLINE ◆
   </text>
 </svg>
 
@@ -207,11 +227,11 @@
 
 ## 🛠️ Development Philosophy
 
-```
+```dart
 class DeveloperMindset {
   final principle = "Write code for humans, not machines";
   
-  void() => {
+  void execute() {
     ✓ Clean, maintainable architectures
     ✓ User-centric design principles
     ✓ Performance-optimized solutions
@@ -260,25 +280,31 @@ class DeveloperMindset {
 
 ---
 
-<!-- Final Cyber Line -->
-<svg width="100%" height="40" viewBox="0 0 800 40" xmlns="http://www.w3.org/2000/svg">
+<!-- Final Neon Signature -->
+<svg width="100%" height="50" viewBox="0 0 800 50" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
-      @keyframes scanline {
-        0% { opacity: 0; }
+      @keyframes fadeGlow {
+        0%, 100% { opacity: 0.4; }
         50% { opacity: 1; }
-        100% { opacity: 0; }
       }
-      .scan {
-        animation: scanline 3s ease-in-out infinite;
-      }
+      .glow-text { animation: fadeGlow 3s ease-in-out infinite; }
     </style>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
   </defs>
-  <line x1="50" y1="20" x2="750" y2="20" stroke="#6b21ff" stroke-width="1" opacity="0.5"/>
-  <circle cx="50" cy="20" r="3" fill="#00ffff" opacity="0.8"/>
-  <circle cx="750" cy="20" r="3" fill="#00ffff" opacity="0.8"/>
-  <text x="400" y="35" font-family="monospace" font-size="11" fill="#00ffff" text-anchor="middle" opacity="0.4" class="scan">
-    STATUS: ONLINE
+  
+  <!-- Corner Brackets -->
+  <text x="80" y="30" font-family="monospace" font-size="16" fill="#00d4ff" opacity="0.5" filter="url(#textGlow)">&lt;</text>
+  <text x="720" y="30" font-family="monospace" font-size="16" fill="#ff006e" opacity="0.5" filter="url(#textGlow)">&gt;</text>
+  
+  <!-- Status Line -->
+  <line x1="100" y1="25" x2="700" y2="25" stroke="#6b21ff" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Signature Text -->
+  <text x="400" y="35" font-family="monospace" font-size="11" fill="#00d4ff" text-anchor="middle" class="glow-text" filter="url(#textGlow)">
+    READY TO BUILD TOMORROW'S APPLICATIONS TODAY
   </text>
 </svg>
 
@@ -287,9 +313,9 @@ class DeveloperMindset {
 **Last Updated**: 2026-05-17 | Continuously Evolving
 
 ```
-> Ready to build tomorrow's applications today
 > Pushing boundaries of what's possible
 > One line of elegant code at a time
+> Let's create something extraordinary
 ```
 
 </div>
